@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  data_analyst_ocr:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8001:8001"
+    volumes:
+      - .:/ocr_service
+    command: uvicorn main:app --host 0.0.0.0 --port 8001 --reload
